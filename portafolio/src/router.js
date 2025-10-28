@@ -5,6 +5,7 @@ const routes = [
     { path: '/team', component:  async () => await import('./components/Team.vue') },
     { path: '/stock/:name', component:  async () => await import('./components/DetailPage.vue') },
     { path: '/info', component:  async () => await import('./components/Informacion.vue') },
+    {path: '/:pathMatch(.*)*', component: async () => await import('./components/NFP.vue')},
 ]
 
 const router = createRouter({

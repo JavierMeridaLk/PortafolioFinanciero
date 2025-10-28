@@ -7,7 +7,7 @@
         '-translate-x-full': !menuOpen,
       }"
     >
-      <div class="px-6 pt-5 pb-6 sticky top-0  bg-zinc-950 ">
+      <div class="px-6 pt-5 pb-6 sticky top-0  !bg-zinc-950 ">
         <div class="flex items-center justify-between">
           <AnOutlinedStock class="size-12 text-indigo-600" />
           <button
@@ -17,7 +17,7 @@
             <ClCloseMd />
           </button>
         </div>
-        <h1 class="text-2xl font-semibold">Inversiones</h1>
+        <h1 class="text-2xl font-semibold">Portafolio de Inversiones</h1>
       </div>
       <nav class="py-4">
         <ul class="space-y-1.5">
@@ -41,6 +41,9 @@
     </div>
   </main>
 </template>
+
+
+
 <script setup lang="jsx">
   import {
     AnOutlinedStock,
@@ -88,21 +91,18 @@
   });
 </script>
 
+
+
+
+
 <style scoped>
-  :root {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-      sans-serif;
-  }
-
-  .fade-up-enter-active,
-  .fade-up-leave-active {
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-  }
-
-  .fade-up-enter-from,
-  .fade-up-leave-to {
-    opacity: 0;
-    transform: translateY(35px);
-  }
+.fade-up-enter-active,
+.fade-up-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.fade-up-enter-from,
+.fade-up-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
 </style>

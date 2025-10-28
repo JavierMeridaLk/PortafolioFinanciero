@@ -3,14 +3,14 @@
         <header
         class="sticky top-0 px-8 md:pt-12 md:px-20 z-10 bg-black/30 backdrop-blur-xl text-2xl font-semibold py-6"
         >
-        <h1>Resumen general</h1>
+        <h1>Vista General</h1>
         </header>
         <section class="md:px-20 px-8 pb-20">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-5">
             <div
             v-for="item in indexData.topCards"
             :key="item.title"
-            class="ring-1 ring-white/15 shadow-md rounded-lg p-4 bg-linear-to-br from-neutral-800/10 to-neutral-700/40"
+            class="ring-1 ring-white/15 shadow-md rounded-lg p-4 bg-gradient-to-br from-neutral-800/10 to-neutral-700/40"
             >
             <div class="flex justify-between items-center">
                 <div class="flex flex-col gap-y-2">
@@ -20,7 +20,7 @@
                 </h6>
                 <code
                     :class="{
-                    'font-black text-2xl': item.title === 'Rendimiento Total',
+                    'font-black !text-2xl': item.title === 'Rendimiento Total',
                     'text-red-500':
                         item.value < 0 && item.title === 'Rendimiento Total',
                     'text-green-500':
@@ -42,7 +42,7 @@
             </div>
             </div>
         </div>
-        <h1 class="text-2xl font-semibold py-6">Grafica del flujo de inversión</h1>
+        <h1 class="text-2xl font-semibold py-6">Flujo general de inversión</h1>
         <div class="">
             <div
             ref="chartDiv"
@@ -52,9 +52,7 @@
         </section>
     </div>
 </template>
-
 <script setup>
-
     import { onMounted, ref } from "vue";
     import { indexData } from "../data/indexData";
     import { createChart } from "lightweight-charts";

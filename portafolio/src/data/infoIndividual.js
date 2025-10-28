@@ -1,14 +1,18 @@
 import {
-    CoBrandBitcoin,   
-    SiEuro,           
-    SiYen,            
-    SiCocaCola,       
+    AnFilledGold,   
+    AnFilledEuroCircle,           
+    BsCurrencyYen,            
+    SiCocacola,       
     SiAmazon,        
     FaOilCan,         
-    SiMicrosoft,     
+    BsMicrosoft,     
     SiApple,         
-    BsGoogle,        
-    SiWalmart 
+    DeGoogleOriginal,        
+    SiWalmart,
+    LaMoneyBillWaveSolid,
+    CaPortfolio,
+    FlFilledMoneyHand,
+    HeOutlineMoneyBag
 } from "@kalimahapps/vue-icons";
 
 export const stocksIdInfo = {
@@ -16,43 +20,43 @@ export const stocksIdInfo = {
     euro: {
         name: "Euro",
         code: "EUR",
-        icon: SiEuro,
+        icon: AnFilledEuroCircle,
         
         cards: [
         {
             icon: LaMoneyBillWaveSolid,
             title: "Costo Inicial",
-            value: 0.00,
+            value: 1.18,
             class: "text-green-500",
         },
         {
             icon: LaMoneyBillWaveSolid,
             title: "Costo Final",
-            value: 0.00,
+            value: 1.16,
             class: "text-red-500",
         },
         {
             icon: CaPortfolio,
             title: "Acciones Compradas",
-            value: 0.00,
+            value: 50_000.00,
             class: "text-amber-500",
         },
         {
             icon: FlFilledMoneyHand,
             title: "Inversión Inicial",
-            value: 20_690.0,
+            value: 58_895.00,
             class: "text-amber-600",
         },
         {
             icon: FlFilledMoneyHand,
             title: "Inversión Final",
-            value: 0.00,
+            value: 58_135.00,
             class: "text-blue-400",
         },
         {
             icon: HeOutlineMoneyBag,
             title: "Ganancia",
-            value: 0.00,
+            value: -760.00,
             class: "text-slate-100",
         },
         ],
@@ -78,7 +82,7 @@ export const stocksIdInfo = {
     yen: {
         name: "Yen",
         code: "JPY",
-        icon: SiYen,
+        icon: BsCurrencyYen,
         
         cards: [
         {
@@ -140,43 +144,43 @@ export const stocksIdInfo = {
     oro: {
         name: "Oro",
         code: "XAU",
-        icon: CoBrandBitcoin,
+        icon: AnFilledGold,
         
         cards: [
         {
             icon: LaMoneyBillWaveSolid,
             title: "Costo Inicial",
-            value: 0.00,
+            value: 3_346.50,
             class: "text-green-500",
         },
         {
             icon: LaMoneyBillWaveSolid,
             title: "Costo Final",
-            value: 0.00,
+            value: 4_137.80,
             class: "text-red-500",
         },
         {
             icon: CaPortfolio,
             title: "Acciones Compradas",
-            value: 0.00,
+            value: 75.00,
             class: "text-amber-500",
         },
         {
             icon: FlFilledMoneyHand,
             title: "Inversión Inicial",
-            value: 20_690.0,
+            value: 250_987.50,
             class: "text-amber-600",
         },
         {
             icon: FlFilledMoneyHand,
             title: "Inversión Final",
-            value: 0.00,
+            value: 310_335.00,
             class: "text-blue-400",
         },
         {
             icon: HeOutlineMoneyBag,
             title: "Ganancia",
-            value: 0.00,
+            value: 59_347.50,
             class: "text-slate-100",
         },
         ],
@@ -208,37 +212,37 @@ export const stocksIdInfo = {
         {
             icon: LaMoneyBillWaveSolid,
             title: "Costo Inicial",
-            value: 0.00,
+            value: 66.49,
             class: "text-green-500",
         },
         {
             icon: LaMoneyBillWaveSolid,
             title: "Costo Final",
-            value: 0.00,
+            value: 61.60,
             class: "text-red-500",
         },
         {
             icon: CaPortfolio,
             title: "Acciones Compradas",
-            value: 0.00,
+            value: 510.00,
             class: "text-amber-500",
         },
         {
             icon: FlFilledMoneyHand,
             title: "Inversión Inicial",
-            value: 20_690.0,
+            value: 33_909.90,
             class: "text-amber-600",
         },
         {
             icon: FlFilledMoneyHand,
             title: "Inversión Final",
-            value: 0.00,
+            value: 31_416.00,
             class: "text-blue-400",
         },
         {
             icon: HeOutlineMoneyBag,
             title: "Ganancia",
-            value: 0.00,
+            value: -2_493.90,
             class: "text-slate-100",
         },
         ],
@@ -264,7 +268,7 @@ export const stocksIdInfo = {
     coca: {
         name: "The Coca-Cola Company",
         code: "KO",
-        icon: SiCocaCola,
+        icon: SiCocacola,
         
         cards: [
         {
@@ -388,7 +392,7 @@ export const stocksIdInfo = {
     microsoft: {
         name: "Microsoft Corporation",
         code: "MSFT",
-        icon: SiMicrosoft,
+        icon: BsMicrosoft,
         
         cards: [
         {
@@ -456,37 +460,37 @@ export const stocksIdInfo = {
         {
             icon: LaMoneyBillWaveSolid,
             title: "Costo Inicial",
-            value: 0.00,
+            value: 213.55,
             class: "text-green-500",
         },
         {
             icon: LaMoneyBillWaveSolid,
             title: "Costo Final",
-            value: 0.00,
+            value: 262.82,
             class: "text-red-500",
         },
         {
             icon: CaPortfolio,
             title: "Acciones Compradas",
-            value: 0.00,
+            value: 310.00,
             class: "text-amber-500",
         },
         {
             icon: FlFilledMoneyHand,
             title: "Inversión Inicial",
-            value: 20_690.0,
+            value: 66_200.50,
             class: "text-amber-600",
         },
         {
             icon: FlFilledMoneyHand,
             title: "Inversión Final",
-            value: 0.00,
+            value: 81_474.20,
             class: "text-blue-400",
         },
         {
             icon: HeOutlineMoneyBag,
             title: "Ganancia",
-            value: 0.00,
+            value: 15_273.70,
             class: "text-slate-100",
         },
         ],
@@ -512,7 +516,7 @@ export const stocksIdInfo = {
     google: {
         name: "Google LLC",
         code: "GOOGL",
-        icon: SiGoogle,
+        icon: DeGoogleOriginal,
         
         cards: [
         {

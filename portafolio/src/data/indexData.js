@@ -1,19 +1,21 @@
 import { CaMoney, FlReceiptMoney, McPigMoneyLine, BxMoneyWithdraw, AnOutlinedTeam } from "@kalimahapps/vue-icons";
-import { BxMoneyWithdraw, CaMoney, McPigMoneyLine, FlReceiptMoney } from "@kalimahapps/vue-icons";
 
 import { AkDashboard, AkInfo } from "@kalimahapps/vue-icons";
 import {
-    CoBrandBitcoin,   
-    SiEuro,           
-    SiYen,            
-    SiCocaCola,       
+    AnFilledGold,   
+    AnFilledEuroCircle,           
+    BsCurrencyYen,            
+    SiCocacola,       
     SiAmazon,        
     FaOilCan,         
-    SiMicrosoft,     
+    BsMicrosoft,     
     SiApple,         
-    BsGoogle,        
+    DeGoogleOriginal,        
     SiWalmart 
+
 } from "@kalimahapps/vue-icons";
+
+
 
 
     export const indexData = {
@@ -27,13 +29,13 @@ import {
         {
         icon: CaMoney,
         title: 'Capital Utilizado',
-        value: 999_980.50,
+        value: 999_994.06,
         class: 'text-red-500',
         },
         {
         icon: McPigMoneyLine,
         title: 'Capital Restante',
-        value: 19.50,
+        value: 5.94,
         class: 'text-amber-500',
         },
         {
@@ -85,14 +87,14 @@ import {
     {
         name: "Euro",
         path: "/stock/euro",
-        icon: SiEuro,
-        class: "!text-indigo-500 !bg-blue-950",
+        icon: AnFilledEuroCircle,
+        class: "!text-yellow-500 !bg-yellow-950",
     },
     {
         name: "Yen",
         path: "/stock/yen",
-        icon: SiYen,
-        class: "!text-yellow-500 !bg-red-950",
+        icon: BsCurrencyYen,
+        class: "!text-yellow-500 !bg-yellow-950",
     },
     {
         name: "Recursos",
@@ -103,8 +105,8 @@ import {
     {
         name: "Oro",
         path: "/stock/oro",
-        icon: CoBrandBitcoin,
-        class: "!text-indigo-500 !bg-yellow-950",
+        icon: AnFilledGold,
+        class: "!text-yellow-500 !bg-yellow-950",
     },
     {
         name: "Petróleo",
@@ -121,8 +123,8 @@ import {
     {
         name: "The Coca-Cola Company",
         path: "/stock/coca",
-        icon: SiCocaCola,
-        class: "!text-blue-500 !bg-red-950",
+        icon: SiCocacola,
+        class: "text-white !bg-red-950",
     },
     {
         name: "Amazon Inc",
@@ -133,25 +135,25 @@ import {
     {
         name: "Microsoft Corporation",
         path: "/stock/microsoft",
-        icon: SiMicrosoft,
+        icon: BsMicrosoft,
         class: "!text-blue-500 !bg-blue-950",
     },
     {
         name: "Apple Inc",
         path: "/stock/apple",
         icon: SiApple,
-        class: "!text-green-500 !bg-slate-900",
+        class: "text-white bg-slate-800",
     },
     {
         name: "Google LLC",
         path: "/stock/google",
-        icon: BsGoogle,
+        icon: DeGoogleOriginal,
         class: "!text-green-500 !bg-green-950",
     },
     {
         name: "Walmart Inc",
         path: "/stock/walmart",
         icon: SiWalmart,
-        class: "!text-red-500 !bg-blue-950",
+        class: "!text-blue-500 !bg-blue-950",
     },
 ];

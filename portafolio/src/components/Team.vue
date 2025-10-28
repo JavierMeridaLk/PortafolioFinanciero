@@ -35,8 +35,8 @@
         img: "/img/xavi.jpg",
         },
         {
-        name: "Fredy",
-        ra: "202030851",
+        name: "Fredy José Gabriel Herrera Funes",
+        ra: "202130478",
         img: "/img/fredy.jpg",
         },
         {
@@ -45,8 +45,8 @@
         img: "/img/kike.jpg",
         },
         {
-        name: "Aleko",
-        ra: "201930761",
+        name: "Luis Alejandro Regalado Villatoro",
+        ra: "202131920",
         img: "/img/alejo.jpg",
         },
         {
@@ -55,8 +55,8 @@
         img: "/img/monse.jpg",
         },
         {
-        name: "Fer",
-        ra: "202230884",
+        name: "Juan Fernando García Natareno",
+        ra: "202230077",
         img: "/img/fer.jpg",
         },
     ];

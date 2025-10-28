@@ -6,7 +6,11 @@ export default {
     './src/**/*.{vue,js,ts,jsx,tsx}',
   ],
   theme: {
+    fontFamily: {
+      sans: "Mona Sans, sans-serif",
+      // mono: "DM Mono, ui-monospace",
+      mono: "Hubot Sans, ui-monospace",
+    },
     extend: {},
   },
-  plugins: [],
 };
