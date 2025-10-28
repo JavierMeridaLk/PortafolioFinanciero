@@ -10,7 +10,7 @@
             <div
             v-for="item in indexData.topCards"
             :key="item.title"
-            class="ring-1 ring-white/15 shadow-md rounded-lg p-4 bg-gradient-to-br from-neutral-800/10 to-neutral-700/40"
+            class="ring-1 ring-white/15 shadow-md rounded-lg p-4 bg-linear-to-br from-neutral-800/10 to-neutral-700/40"
             >
             <div class="flex justify-between items-center">
                 <div class="flex flex-col gap-y-2">
@@ -20,7 +20,7 @@
                 </h6>
                 <code
                     :class="{
-                    'font-black !text-2xl': item.title === 'Rendimiento Total',
+                    'font-black text-2xl': item.title === 'Rendimiento Total',
                     'text-red-500':
                         item.value < 0 && item.title === 'Rendimiento Total',
                     'text-green-500':
@@ -54,6 +54,7 @@
 </template>
 
 <script setup>
+
     import { onMounted, ref } from "vue";
     import { indexData } from "../data/indexData";
     import { createChart } from "lightweight-charts";

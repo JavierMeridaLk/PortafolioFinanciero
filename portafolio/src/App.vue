@@ -7,7 +7,7 @@
         '-translate-x-full': !menuOpen,
       }"
     >
-      <div class="px-6 pt-5 pb-6 sticky top-0  !bg-zinc-950 ">
+      <div class="px-6 pt-5 pb-6 sticky top-0  bg-zinc-950 ">
         <div class="flex items-center justify-between">
           <AnOutlinedStock class="size-12 text-indigo-600" />
           <button

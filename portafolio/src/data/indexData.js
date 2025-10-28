@@ -1,4 +1,7 @@
 import { CaMoney, FlReceiptMoney, McPigMoneyLine, BxMoneyWithdraw, AnOutlinedTeam } from "@kalimahapps/vue-icons";
+import { BxMoneyWithdraw, CaMoney, McPigMoneyLine, FlReceiptMoney } from "@kalimahapps/vue-icons";
+
+import { AkDashboard, AkInfo } from "@kalimahapps/vue-icons";
 import {
     CoBrandBitcoin,   
     SiEuro,           
@@ -129,25 +132,25 @@ import {
     },
     {
         name: "Microsoft Corporation",
-        path: "/stock/ibm",
+        path: "/stock/microsoft",
         icon: SiMicrosoft,
         class: "!text-blue-500 !bg-blue-950",
     },
     {
         name: "Apple Inc",
-        path: "/stock/starbucks",
+        path: "/stock/apple",
         icon: SiApple,
         class: "!text-green-500 !bg-slate-900",
     },
     {
         name: "Google LLC",
-        path: "/stock/nvidia",
+        path: "/stock/google",
         icon: BsGoogle,
         class: "!text-green-500 !bg-green-950",
     },
     {
         name: "Walmart Inc",
-        path: "/stock/google",
+        path: "/stock/walmart",
         icon: SiWalmart,
         class: "!text-red-500 !bg-blue-950",
     },

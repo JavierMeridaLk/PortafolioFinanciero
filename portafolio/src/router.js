@@ -7,7 +7,9 @@ const routes = [
     { path: '/info', component:  async () => await import('./components/Informacion.vue') },
 ]
 
-export const router = createRouter({
+const router = createRouter({
     history: createWebHistory(),
     routes,
 })
+
+export default router

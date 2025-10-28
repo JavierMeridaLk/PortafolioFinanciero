@@ -1,7 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Importar la base (preflight) */
+/* Tailwind v4 compatible */
+@import "tailwindcss/preflight.css";
+@import "tailwindcss/utilities.css";
 
 html {
   color-scheme: only dark;
 }
+
+
