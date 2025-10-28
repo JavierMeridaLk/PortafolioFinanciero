@@ -83,13 +83,13 @@ import {
         name: "Euro",
         path: "/stock/euro",
         icon: SiEuro,
-        class: "!text-indigo-500 !bg-indigo-950",
+        class: "!text-indigo-500 !bg-blue-950",
     },
     {
         name: "Yen",
         path: "/stock/yen",
         icon: SiYen,
-        class: "!text-yellow-500 !bg-yellow-950",
+        class: "!text-yellow-500 !bg-red-950",
     },
     {
         name: "Recursos",
@@ -101,13 +101,13 @@ import {
         name: "Oro",
         path: "/stock/oro",
         icon: CoBrandBitcoin,
-        class: "!text-indigo-500 !bg-indigo-950",
+        class: "!text-indigo-500 !bg-yellow-950",
     },
     {
         name: "Petróleo",
         path: "/stock/petroleo",
         icon: FaOilCan,
-        class: "!text-indigo-500 !bg-indigo-950",
+        class: "!text-indigo-500 !bg-gray-950",
     },
     {
         name: "Empresas",
@@ -119,7 +119,7 @@ import {
         name: "The Coca-Cola Company",
         path: "/stock/coca",
         icon: SiCocaCola,
-        class: "!text-blue-500 !bg-blue-950",
+        class: "!text-blue-500 !bg-red-950",
     },
     {
         name: "Amazon Inc",
@@ -137,7 +137,7 @@ import {
         name: "Apple Inc",
         path: "/stock/starbucks",
         icon: SiApple,
-        class: "!text-green-500 !bg-green-950",
+        class: "!text-green-500 !bg-slate-900",
     },
     {
         name: "Google LLC",
@@ -149,6 +149,6 @@ import {
         name: "Walmart Inc",
         path: "/stock/google",
         icon: SiWalmart,
-        class: "!text-red-500 !bg-red-950",
+        class: "!text-red-500 !bg-blue-950",
     },
 ];
