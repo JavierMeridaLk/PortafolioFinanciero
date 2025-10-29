@@ -40,8 +40,8 @@
         img: "/img/fredy.jpg",
         },
         {
-        name: "Kike",
-        ra: "202231051",
+        name: "Enrique Alexander Tebalan Hernandez",
+        ra: "202230026",
         img: "/img/kike.jpg",
         },
         {
@@ -50,8 +50,8 @@
         img: "/img/alejo.jpg",
         },
         {
-        name: "Monse",
-        ra: "202230884",
+        name: "Maria Monserrat Gomez Rabatu",
+        ra: "202030849",
         img: "/img/monse.jpg",
         },
         {

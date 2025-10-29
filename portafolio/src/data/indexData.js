@@ -41,7 +41,7 @@ import {
         {
         icon: FlReceiptMoney,
         title: 'Ganancia Total',
-        value:  49_072.61,
+        value:  72_133.97,
         class: 'text-slate-200',
         },
     ]
@@ -143,12 +143,6 @@ import {
         path: "/stock/apple",
         icon: SiApple,
         class: "text-white bg-slate-800",
-    },
-    {
-        name: "Google LLC",
-        path: "/stock/google",
-        icon: DeGoogleOriginal,
-        class: "!text-green-500 !bg-green-950",
     },
     {
         name: "Walmart Inc",
