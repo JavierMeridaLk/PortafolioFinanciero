@@ -52,6 +52,9 @@
                 }}
                 </code>
             </div>
+            <h1 class="text-2xl font-semibold py-6">Flujo de las ganancias</h1>
+            <div class="">
+                <div ref="chartDiv" class="rounded-lg overflow-hidden ring-2 ring-white/15"></div>
             </div>
         </div>
 
@@ -69,64 +72,69 @@
 </template>
 
 <script setup>
-    import { onMounted, ref } from "vue";
-    import { indexData } from "../data/indexData";
-    import { createChart } from "lightweight-charts";
+import { onMounted, ref } from "vue";
+import { indexData } from "../data/indexData";
+import { BaselineSeries, createChart } from "lightweight-charts";
 
-    const chartDiv = ref(null);
-    onMounted(() => {
-        const chartOptions = {
+const chartDiv = ref(null);
+onMounted(() => {
+    const chartOptions = {
         layout: {
             textColor: "white",
             background: { type: "solid", color: "black" },
         },
         grid: {
             vertLines: {
-            color: "rgba(255, 255, 255, 0.05)",
+                color: "rgba(255, 255, 255, 0.05)",
             },
             horzLines: {
-            color: "rgba(255, 255, 255, 0.05)",
+                color: "rgba(255, 255, 255, 0.05)",
             },
         },
         height: 500,
         localization: {
             priceFormatter: (price) => {
-            return price.toLocaleString("en-GB", {
-                style: "currency",
-                currency: "USD",
-            });
+                return price.toLocaleString("en-GB", {
+                    style: "currency",
+                    currency: "USD",
+                });
             },
         },
-        };
-        const chart = createChart(chartDiv.value, chartOptions);
-        const areaSeries = chart.addBaselineSeries({
+    };
+    const chart = createChart(chartDiv.value, chartOptions);
+    const areaSeries = chart.addSeries(BaselineSeries, {
         baseValue: { type: "price", price: 0 },
-        topLineColor: "#e9d5ff",
-        topFillColor1: "rgba(192,132,252,0.8)",
-        topFillColor2: "rgba(126,34,206,0.6)",
-        bottomLineColor: "#f9a8d4",
-        bottomFillColor1: "rgba(244,114,182,0.8)",
-        bottomFillColor2: "rgba(190,24,93,0.6)",
-        });
-
-        const data = [
-        { value: 0, time: 1723686030 },
-        { value: 9_584.1, time: 1724290830 },
-        { value: -5_073.93, time: 1724895630 },
-        { value: -30_718.62, time: 1725500430 },
-        { value: -10_201.75, time: 1726105230 },
-        { value: 31_730.69, time: 1726710030 },
-        { value: 46_565.06, time: 1727314830 },
-        { value: 5_331.91, time: 1727919630 },
-        { value: 2_230.38, time: 1728524430 },
-        { value: 39_374.32, time: 1729129230 },
-        { value: 50_290.29, time: 1729734030 },
-        { value: 49_072.61, time: 1730338830 },
-        ];
-
-        areaSeries.setData(data);
-
-        chart.timeScale().fitContent();
+        topLineColor: "#d5fff1",
+        topFillColor1: "rgba(66, 245, 188,0.8)",
+        topFillColor2: "rgba(38, 209, 186,0.6)",
+        bottomLineColor: "#dcd5ff",
+        bottomFillColor1: "rgba(88, 64, 207,0.8)",
+        bottomFillColor2: "rgba(122, 46, 199,0.6)",
     });
+
+    
+
+    areaSeries.setData([
+        { value: 5.94, time: 1751500800 }, // 4/07/2025
+        { value: -2328.59, time: 1752192000 }, // 11/07/2025
+        { value: 295.21, time: 1752796800 }, // 18/07/2025
+        { value: 4968.53, time: 1753401600 }, // 25/07/2025
+        { value: -12870.66, time: 1754006400 }, // 1/08/2025
+        { value: 15575.21, time: 1754611200 }, // 8/08/2025
+        { value: 13378.81, time: 1755216000 }, // 15/08/2025
+        { value: 10426.85, time: 1755820800 }, // 22/08/2025
+        { value: 15644.96, time: 1756425600 }, // 29/08/2025
+        { value: 26778.61, time: 1757030400 }, // 5/09/2025
+        { value: 27708.44, time: 1757635200 }, // 12/09/2025
+        { value: 32072.45, time: 1758240000 }, // 19/09/2025
+        { value: 28394.97, time: 1758844800 }, // 26/09/2025
+        { value: 38172.61, time: 1759449600 }, // 3/10/2025
+        { value: 48602.32, time: 1760054400 }, // 10/10/2025
+        { value: 56519.01, time: 1760659200 }, // 17/10/2025
+        { value: 72133.97, time: 1761264000 }, // 24/10/2025
+    ]);
+
+    chart.timeScale().fitContent();
+});
 </script>
 <style scoped></style>

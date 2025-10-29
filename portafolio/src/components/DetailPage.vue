@@ -60,67 +60,61 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted, nextTick } from "vue";
 import { useRoute } from "vue-router";
 import { stocksIdInfo } from "../data/infoIndividual";
-import { createChart } from "lightweight-charts";
+import { FaArrowTrendDown, FaArrowTrendUp } from "@kalimahapps/vue-icons";
+import { AreaSeries, CandlestickSeries, createChart } from "lightweight-charts";
+import { onMounted, ref } from "vue";
 
 const route = useRoute();
-const stockData = ref(stocksIdInfo[route.params.name]);
+const stockData = stocksIdInfo[route.params.name];
+
 const chartDiv = ref(null);
-let chart = null;
-
-// ✅ Función que renderiza la gráfica
-function renderChart() {
-  if (!chartDiv.value || !stockData.value) return;
-
-  // Limpia cualquier gráfico anterior
-  chartDiv.value.innerHTML = "";
-
-  chart = createChart(chartDiv.value, {
+onMounted(() => {
+  const chartOptions = {
     layout: {
       textColor: "white",
       background: { type: "solid", color: "black" },
     },
     grid: {
-      vertLines: { color: "rgba(255,255,255,0.05)" },
-      horzLines: { color: "rgba(255,255,255,0.05)" },
+      vertLines: {
+        color: "rgba(255, 255, 255, 0.05)",
+      },
+      horzLines: {
+        color: "rgba(255, 255, 255, 0.05)",
+      },
     },
     height: 500,
     localization: {
-      priceFormatter: (price) =>
-        price.toLocaleString("en-GB", { style: "currency", currency: "USD" }),
+      priceFormatter: (price) => {
+        return price.toLocaleString("en-GB", {
+          style: "currency",
+          currency: "USD",
+        });
+      },
     },
+  };
+  const chart = createChart(chartDiv.value, chartOptions);
+  const areaSeries = chart.addSeries(AreaSeries, {
+    topLineColor: "#e9d5ff",
+    topFillColor1: "rgba(192,132,252,0.8)",
+    topFillColor2: "rgba(126,34,206,0.6)",
+    bottomLineColor: "#f9a8d4",
+    bottomFillColor1: "rgba(244,114,182,0.8)",
+    bottomFillColor2: "rgba(190,24,93,0.6)",
   });
 
-  const series = chart.addCandlestickSeries({
-    upColor: "#26a69a",
-    downColor: "#ef5350",
-    borderVisible: false,
-    wickUpColor: "#26a69a",
-    wickDownColor: "#ef5350",
+
+  areaSeries.setData(stockData.history);
+
+  areaSeries.createPriceLine({
+    price: stockData.initialValue,
+    color: 'yellow',
+    lineWidth: 2,
+    axisLabelVisible: true,
   });
-
-  if (stockData.value.history?.length) {
-    series.setData(stockData.value.history);
-    chart.timeScale().fitContent();
-  }
-}
-
-onMounted(async () => {
-  await nextTick();
-  renderChart();
+  chart.timeScale().fitContent();
 });
-
-// ✅ Detecta cambio de empresa sin recargar
-watch(
-  () => route.params.name,
-  async (newName) => {
-    stockData.value = stocksIdInfo[newName];
-    await nextTick();
-    renderChart();
-  }
-);
 </script>
 
 <style scoped></style>
