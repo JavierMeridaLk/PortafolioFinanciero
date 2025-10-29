@@ -12,6 +12,7 @@
 
     <section class="md:px-20 px-8 pt-10">
       <h5 class="font-black text-xl text-gray-300 mb-4">Detalles de la inversión</h5>
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div
           v-for="item in stockData.cards"
@@ -57,54 +58,69 @@
     </section>
   </div>
 </template>
+
 <script setup>
-  import { useRoute } from "vue-router";
-  import { stocksIdInfo } from "../data/infoIndividual";
-  import { FaArrowTrendDown, FaArrowTrendUp } from "@kalimahapps/vue-icons";
-  import { createChart } from "lightweight-charts";
-  import { h, onMounted, ref } from "vue";
+import { ref, watch, onMounted, nextTick } from "vue";
+import { useRoute } from "vue-router";
+import { stocksIdInfo } from "../data/infoIndividual";
+import { createChart } from "lightweight-charts";
 
-  const route = useRoute();
-  const stockData = stocksIdInfo[route.params.name];
+const route = useRoute();
+const stockData = ref(stocksIdInfo[route.params.name]);
+const chartDiv = ref(null);
+let chart = null;
 
-  const chartDiv = ref(null);
-  onMounted(() => {
-    const chartOptions = {
-      layout: {
-        textColor: "white",
-        background: { type: "solid", color: "black" },
-      },
-      grid: {
-        vertLines: {
-          color: "rgba(255, 255, 255, 0.05)",
-        },
-        horzLines: {
-          color: "rgba(255, 255, 255, 0.05)",
-        },
-      },
-      height: 500,
-      localization: {
-        priceFormatter: (price) => {
-          return price.toLocaleString("en-GB", {
-            style: "currency",
-            currency: "USD",
-          });
-        },
-      },
-    };
-    const chart = createChart(chartDiv.value, chartOptions);
-    const candlestickSeries = chart.addCandlestickSeries({
-      upColor: "#26a69a",
-      downColor: "#ef5350",
-      borderVisible: false,
-      wickUpColor: "#26a69a",
-      wickDownColor: "#ef5350",
-    });
+// ✅ Función que renderiza la gráfica
+function renderChart() {
+  if (!chartDiv.value || !stockData.value) return;
 
-    if (stockData.history?.length) {
-      candlestickSeries.setData(stockData.history);
-      chart.timeScale().fitContent();
-    }
+  // Limpia cualquier gráfico anterior
+  chartDiv.value.innerHTML = "";
+
+  chart = createChart(chartDiv.value, {
+    layout: {
+      textColor: "white",
+      background: { type: "solid", color: "black" },
+    },
+    grid: {
+      vertLines: { color: "rgba(255,255,255,0.05)" },
+      horzLines: { color: "rgba(255,255,255,0.05)" },
+    },
+    height: 500,
+    localization: {
+      priceFormatter: (price) =>
+        price.toLocaleString("en-GB", { style: "currency", currency: "USD" }),
+    },
   });
+
+  const series = chart.addCandlestickSeries({
+    upColor: "#26a69a",
+    downColor: "#ef5350",
+    borderVisible: false,
+    wickUpColor: "#26a69a",
+    wickDownColor: "#ef5350",
+  });
+
+  if (stockData.value.history?.length) {
+    series.setData(stockData.value.history);
+    chart.timeScale().fitContent();
+  }
+}
+
+onMounted(async () => {
+  await nextTick();
+  renderChart();
+});
+
+// ✅ Detecta cambio de empresa sin recargar
+watch(
+  () => route.params.name,
+  async (newName) => {
+    stockData.value = stocksIdInfo[newName];
+    await nextTick();
+    renderChart();
+  }
+);
 </script>
+
 <style scoped></style>
