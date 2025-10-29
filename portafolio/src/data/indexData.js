@@ -1,4 +1,4 @@
-import { CaMoney, FlReceiptMoney, McPigMoneyLine, BxMoneyWithdraw, AnOutlinedTeam } from "@kalimahapps/vue-icons";
+import { CaMoney, FlReceiptMoney, McPigMoneyLine, BxMoneyWithdraw, AnOutlinedTeam, TaOutlineBrandWalmart, AkGoogleFill } from "@kalimahapps/vue-icons";
 
 import { AkDashboard, AkInfo } from "@kalimahapps/vue-icons";
 import {
@@ -145,15 +145,9 @@ import {
         class: "text-white bg-slate-800",
     },
     {
-        name: "Google LLC",
-        path: "/stock/google",
-        icon: DeGoogleOriginal,
-        class: "!text-green-500 !bg-green-950",
-    },
-    {
         name: "Walmart Inc",
         path: "/stock/walmart",
-        icon: SiWalmart,
+        icon: TaOutlineBrandWalmart,
         class: "!text-blue-500 !bg-blue-950",
     },
 ];
