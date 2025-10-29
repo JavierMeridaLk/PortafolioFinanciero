@@ -1,57 +1,73 @@
 <template>
-    <div>
+    <div class="min-h-screen bg-gradient-to-br from-slate-950 via-black to-slate-900 text-white">
+        <!-- Encabezado -->
         <header
-        class="sticky top-0 px-8 md:pt-12 md:px-20 z-10 bg-black/30 backdrop-blur-xl text-2xl font-semibold py-6"
+        class="sticky top-0 z-10 px-8 md:px-20 py-8 md:py-12 bg-gradient-to-r from-slate-950/80 to-black/70 backdrop-blur-xl border-b border-white/10 shadow-lg"
         >
-        <h1>Vista General</h1>
+        <h1 class="mb-2 text-4xl font-bold tracking-tight">Vista General</h1>
+        <h2 class="text-lg font-medium text-gray-400">
+            Resumen de Inversiones
+        </h2>
         </header>
-        <section class="md:px-20 px-8 pb-20">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-5">
+
+        <!-- Sección principal -->
+        <section class="md:px-20 px-8 pb-20 pt-10">
+        <!-- Tarjetas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div
             v-for="item in indexData.topCards"
             :key="item.title"
-            class="ring-1 ring-white/15 shadow-md rounded-lg p-4 bg-gradient-to-br from-neutral-800/10 to-neutral-700/40"
+            class="group bg-gradient-to-br from-slate-900/80 to-slate-800/50 border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-indigo-800/30 transition-all duration-500 hover:scale-[1.02]"
             >
-            <div class="flex justify-between items-center">
-                <div class="flex flex-col gap-y-2">
-                <component :is="item.icon" class="size-7 text-white mb-2" />
-                <h6 class="text-2xl font-semibold" :class="item.class">
-                    {{ item.title }}
+            <div class="flex flex-col gap-y-3">
+                <component
+                :is="item.icon"
+                class="size-8 text-indigo-300 group-hover:text-indigo-400 transition-colors duration-300"
+                />
+                <h6
+                class="text-xl font-semibold tracking-wide"
+                :class="item.class"
+                >
+                {{ item.title }}
                 </h6>
                 <code
-                    :class="{
+                :class="{
                     'font-black !text-2xl': item.title === 'Rendimiento Total',
-                    'text-red-500':
-                        item.value < 0 && item.title === 'Rendimiento Total',
-                    'text-green-500':
-                        item.value >= 0 && item.title === 'Rendimiento Total',
-                    }"
-                    class="text-xl font-semibold"
-                    >{{
-                    item.value.toLocaleString("en-GB", {
-                        style: "currency",
-                        currency: "USD",
-                        signDisplay:
-                        item.title === "Rendimiento Total"
-                            ? "exceptZero"
-                            : "auto",
-                    })
-                    }}</code
+                    'text-red-400':
+                    item.value < 0 && item.title === 'Rendimiento Total',
+                    'text-green-400':
+                    item.value >= 0 && item.title === 'Rendimiento Total',
+                }"
+                class="text-xl font-semibold"
                 >
-                </div>
+                {{
+                    item.value.toLocaleString("en-GB", {
+                    style: "currency",
+                    currency: "USD",
+                    signDisplay:
+                        item.title === "Rendimiento Total"
+                        ? "exceptZero"
+                        : "auto",
+                    })
+                }}
+                </code>
             </div>
             </div>
         </div>
-        <h1 class="text-2xl font-semibold py-6">Flujo general de inversión</h1>
-        <div class="">
-            <div
+
+        <!-- Gráfico -->
+        <h1 class="text-2xl font-semibold pt-16 pb-6 text-gray-200">
+            Flujo general de inversión
+        </h1>
+
+        <div
             ref="chartDiv"
-            class="rounded-lg overflow-hidden ring-2 ring-white/15"
-            ></div>
-        </div>
+            class="rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl shadow-indigo-900/30"
+        ></div>
         </section>
     </div>
 </template>
+
 <script setup>
     import { onMounted, ref } from "vue";
     import { indexData } from "../data/indexData";

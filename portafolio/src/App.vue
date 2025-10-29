@@ -1,46 +1,52 @@
 <template>
-  <main class=" bg-black">
+  <main class="bg-gradient-to-br from-zinc-950 via-black to-zinc-900 text-zinc-100">
+    <!-- Sidebar -->
     <aside
-      class="fixed top-0 left-0 w-80 h-full backdrop-blur bg-zinc-950/85 overflow-y-auto z-40 transition-transform duration-300"
+      class="fixed top-0 left-0 w-80 h-full backdrop-blur-xl bg-zinc-950/80 border-r border-zinc-800/40 overflow-y-auto z-40 transition-transform duration-300"
       :class="{
         'translate-x-0': menuOpen,
         '-translate-x-full': !menuOpen,
       }"
     >
-      <div class="px-6 pt-5 pb-6 sticky top-0  !bg-zinc-950 ">
+      <div class="px-6 pt-6 pb-4 sticky top-0 bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-800/40">
         <div class="flex items-center justify-between">
-          <AnOutlinedStock class="size-12 text-indigo-600" />
+          <AnOutlinedStock class="size-12 text-indigo-500" />
           <button
             class="inline-block md:hidden items-center cursor-pointer p-2.5 my-2 hover:bg-white/10 transition-colors rounded-lg"
             @click="menuOpen = !menuOpen"
           >
-            <ClCloseMd />
+            <ClCloseMd class="text-zinc-300" />
           </button>
         </div>
-        <h1 class="text-2xl font-semibold">Portafolio de Inversiones</h1>
+        <h1 class="text-xl font-semibold tracking-wide mt-2 text-zinc-200">Portafolio de Inversiones</h1>
       </div>
-      <nav class="py-4">
+
+      <nav class="py-4 px-4">
         <ul class="space-y-1.5">
           <ListItem v-for="item in menuItems" :key="item.name" :item="item" />
         </ul>
       </nav>
     </aside>
-    <div class="ml-0 md:ml-80 h-screen overflow-auto">
+
+    <!-- Contenido principal -->
+    <div class="ml-0 md:ml-80 h-screen overflow-auto transition-all duration-300">
       <label
         class="inline-block md:hidden items-center cursor-pointer p-2.5 mx-4 mt-6 hover:bg-white/10 transition-colors rounded-lg"
       >
         <input type="checkbox" class="hidden" v-model="menuOpen" />
-        <ChMenuHamburger />
+        <ChMenuHamburger class="text-zinc-300" />
       </label>
+
+      <!-- Transición del contenido -->
       <router-view v-slot="{ Component, route }">
         <transition name="fade-up" mode="out-in">
           <component :is="Component" :key="route.path" />
         </transition>
       </router-view>
-      <!-- <RouterView /> -->
     </div>
   </main>
 </template>
+
 
 
 

@@ -1,83 +1,60 @@
 <template>
-  <div class="flex flex-col min-h-full pb-20">
+  <div class="min-h-screen bg-gradient-to-br from-slate-950 via-black to-slate-900 text-white pb-20">
     <header
-      class="sticky top-0 z-10 bg-black/10 backdrop-blur-lg md:px-20 md:pt-6 px-8 pt-8 pb-2.5"
+      class="sticky top-0 z-10 px-8 md:px-20 py-8 bg-gradient-to-r from-slate-950/80 to-black/70 backdrop-blur-xl border-b border-white/10 shadow-lg"
     >
-      <h1 class="text-2xl font-bold">
-        <component
-          :is="stockData.icon"
-          class="size-14 mb-2"
-          :class="stockData.class"
-        />
-        <span>{{ stockData.name }}</span> - <code>{{ stockData.code }}</code>
+      <h1 class="text-3xl font-bold tracking-tight flex items-center gap-3">
+        <component :is="stockData.icon" class="size-10" :class="stockData.class" />
+        <span>{{ stockData.name }}</span>
+        <code class="text-gray-400 text-lg">({{ stockData.code }})</code>
       </h1>
     </header>
-    <h5 class="md:px-20 px-8 pt-2.5 font-black text-xl text-neutral-200">
-      Detalles de la inversión
-    </h5>
-    <div
-      class="md:px-20 px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-5"
-    >
-      <div
-        v-for="item in stockData.cards"
-        :key="item.title"
-        class="ring-1 ring-white/15 shadow-md rounded-lg p-4 bg-gradient-to-br from-neutral-800/10 to-neutral-700/40"
-      >
-        <div class="flex justify-between items-center">
+
+    <section class="md:px-20 px-8 pt-10">
+      <h5 class="font-black text-xl text-gray-300 mb-4">Detalles de la inversión</h5>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          v-for="item in stockData.cards"
+          :key="item.title"
+          class="group bg-gradient-to-br from-slate-900/80 to-slate-800/50 border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-indigo-800/30 transition-all duration-500 hover:scale-[1.02]"
+        >
           <div class="flex flex-col gap-y-2">
-            <component :is="item.icon" class="size-7 text-white mb-2" />
-            <h6 class="text-2xl font-semibold" :class="item.class">
-              {{ item.title }}
-            </h6>
+            <component :is="item.icon" class="size-7 text-indigo-300 mb-2 group-hover:text-indigo-400 transition-colors" />
+            <h6 class="text-lg font-semibold text-gray-200" :class="item.class">{{ item.title }}</h6>
             <code
-              class="text-xl font-semibold flex items-center gap-x-4"
+              class="text-xl font-semibold flex items-center gap-x-3"
               :class="{
-                'font-black !text-2xl': item.title === 'Rendimiento Final',
-                'text-red-500':
-                  item.value < 0 && item.title === 'Rendimiento Final',
-                'text-green-500':
-                  item.value >= 0 && item.title === 'Rendimiento Final',
+                'font-black !text-2xl': item.title === 'Ganancia',
+                'text-red-400': item.value < 0 && item.title === 'Ganancia',
+                'text-green-400': item.value >= 0 && item.title === 'Ganancia',
               }"
-              >{{
+            >
+              {{
                 item.title !== "Acciones Compradas"
                   ? item.value.toLocaleString("en-GB", {
                       style: "currency",
                       currency: "USD",
                       signDisplay:
-                        item.title === "Rendimiento Final"
-                          ? "exceptZero"
-                          : "auto",
+                        item.title === "Ganancia" ? "exceptZero" : "auto",
                     })
                   : `${item.value} acciones`
               }}
-              <FaArrowTrendUp
-                v-if="item.title === 'Rendimiento Final' && item.value >= 0"
-                class="size-7 text-green-500"
-              />
-              <FaArrowTrendDown
-                v-if="item.title === 'Rendimiento Final' && item.value < 0"
-                class="size-7 text-red-500"
-              />
             </code>
           </div>
         </div>
       </div>
-    </div>
-    <h5 class="md:px-20 px-8 py-2.5 font-black text-xl text-neutral-200">
-      Gráfica
-    </h5>
-    <div class="md:px-20 px-8">
+
+      <h5 class="font-black text-xl text-gray-300 mt-12 mb-4">Gráfica</h5>
       <div
         ref="chartDiv"
-        class="rounded-lg overflow-hidden ring-2 ring-white/15"
+        class="rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl shadow-indigo-900/30"
       ></div>
-    </div>
-    <h5 class="md:px-20 px-8 pb-3 pt-5 font-black text-xl text-neutral-200">
-      Justificación de compra
-    </h5>
-    <p class="md:px-20 px-8 text-lg leading-relaxed">
-      {{ stockData.description }}
-    </p>
+
+      <h5 class="font-black text-xl text-gray-300 mt-12 mb-3">Justificación de compra</h5>
+      <p class="text-lg leading-relaxed text-gray-300">
+        {{ stockData.description }}
+      </p>
+    </section>
   </div>
 </template>
 <script setup>
