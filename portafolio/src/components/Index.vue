@@ -22,38 +22,36 @@
                             {{ item.title }}
                         </h6>
                         <code :class="{
-                            'font-black !text-2xl': item.title === 'Rendimiento Total',
+                            'font-black !text-2xl': item.title === 'Ganancia Total',
                             'text-red-400':
-                                item.value < 0 && item.title === 'Rendimiento Total',
+                                item.value < 0 && item.title === 'Ganancia Total',
                             'text-green-400':
-                                item.value >= 0 && item.title === 'Rendimiento Total',
-                        }" class="text-xl font-semibold">
-                {{
-                    item.value.toLocaleString("en-GB", {
-                        style: "currency",
-                        currency: "USD",
-                        signDisplay:
-                            item.title === "Rendimiento Total"
-                                ? "exceptZero"
-                                : "auto",
-                    })
-                }}
-                </code>
-                    </div>
-                    <h1 class="text-2xl font-semibold py-6">Flujo de las ganancias</h1>
-                    <div class="">
-                        <div ref="chartDiv" class="rounded-lg overflow-hidden ring-2 ring-white/15"></div>
+                                item.value >= 0 && item.title === 'Ganancia Total',
+                            }" class="text-xl font-semibold">
+                            {{
+                                item.value.toLocaleString("en-GB", {
+                                    style: "currency",
+                                    currency: "USD",
+                                    signDisplay:
+                                        item.title === "Ganancia Total"
+                                            ? "exceptZero"
+                                            : "auto",
+                                })
+                            }}
+                        </code>
                     </div>
                 </div>
+            </div>
+            <!-- Gráfico de flujo de ganancias -->
+            <h1 class="text-2xl font-semibold pt-16 pb-6 text-gray-200">
+                Flujo general de inversión
+            </h1>
 
-                <!-- Gráfico -->
-                <h1 class="text-2xl font-semibold pt-16 pb-6 text-gray-200">
-                    Flujo general de inversión
-                </h1>
-
-                <div ref="chartDiv"
-                    class="rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl shadow-indigo-900/30"></div>
-                    </div>
+            <div
+            ref="chartDiv"
+            class="rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl shadow-indigo-900/30"
+            ></div>
+        
         </section>
     </div>
 </template>

@@ -58,7 +58,7 @@ export const stocksIdInfo = {
             icon: HeOutlineMoneyBag,
             title: "Ganancia",
             value: -760.00,
-            class: "text-emerald-400",
+            class: 'text-emerald-400',
         },
         ],
 
