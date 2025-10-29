@@ -41,8 +41,8 @@ import {
         {
         icon: FlReceiptMoney,
         title: 'Ganancia Total',
-        value:  49_072.61,
-        class: 'text-slate-200',
+        value:  72_133.97,
+        class: 'text-emerald-400',
         },
     ]
     }
